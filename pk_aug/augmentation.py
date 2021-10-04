@@ -1,7 +1,8 @@
 import re
 from typing import List, Dict
+import regex as reg
 
-TO_REMOVE = []#['[', '(', ']', ')']
+TO_REMOVE = []  # ['[', '(', ']', ')']
 DOT_SYNS = ['x', '*', '×', '•', ' ', '⋅']
 UNIT_SYNONYMS = {
     '·': DOT_SYNS,
@@ -94,3 +95,45 @@ def standardise_unit(inp_mention: str) -> str:
     inp_mention = inp_mention.replace("micro·", "μ")
     inp_mention = inp_mention.replace("micro", "μ")
     return inp_mention
+
+
+def standardise_divide(inp_mention: str) -> str:
+    '''
+    Converts all units into dict of numerator and denominator (removes all "/" and "-1")
+    '''
+    # find up to first /
+    # match1= reg.findall(r"^(.*?)(?=/)", inp_mention)
+    if len(re.findall("/", inp_mention))>=1:
+        splt= inp_mention.split("/")
+        minus_list= []
+        for item in splt:
+            if re.findall("-\d+|−\d+", item):
+                minus_list.append(item)
+                print(item)
+
+        #convert minus items to correct format
+        #replace minus items in original list
+        nominator= splt[0]
+        denominator = '.'.join(splt[1:])
+
+    #when more than 1 slash
+    #inp_mention =
+    #that ahead of dash is numerator and that after is denominator (however nb that a second dash can be considered as a multiplication)
+
+
+    r2 = re.findall("-\d+|−\d+", inp_mention)
+    replace_list= []
+    print(r2)
+    #need to separate if these are in brackets
+    if len(r2)>=1:
+        print("there are more than 1 minus digit")
+        #for i in r2:
+            #inp_mention = inp_mention.replace(i, replace_list)
+
+    return inp_mention
+
+
+test_ones = ["·10−6·cm/s/h",  "ng·ml(-1)·h(-1)", "μmol·l−1", "l·(kg·h)(-1)"]
+for x in test_ones:
+    t2 = standardise_unit(x)
+    final = standardise_divide(t2)

@@ -8,9 +8,9 @@ import pandas as pd
 
 
 def main(
-        input_file: Path = typer.Option(default="data/train-all-reviewed.jsonl"),
-        units_dict: Path = typer.Option(default="data/dictionaries/data_augment.json"),
-        output_freqs: Path = typer.Option(default="data/dictionaries/u_mention_freqs.csv")
+        input_file: Path = typer.Option(default="../data/train-all-reviewed.jsonl"),
+        units_dict: Path = typer.Option(default="../data/dictionaries/data_augment.json"),
+        output_freqs: Path = typer.Option(default="../data/dictionaries/u_mention_freqs.csv")
 ):
     annotations = list(read_jsonl(input_file))
     with open(units_dict) as cf:
@@ -31,6 +31,9 @@ def main(
                     units_mention = an['text'][ch_start:ch_end]
                     original.append(units_mention)
                     units_mention = pkaug.standardise_unit(units_mention)
+                    #########
+                    #units_mention = pkaug.standardise_divide(units_mention)
+                    ###########
                     standard.append(units_mention)
                     all_unit_mentions.append(units_mention)
                     # Find the pk mention:
