@@ -97,43 +97,91 @@ def standardise_unit(inp_mention: str) -> str:
     return inp_mention
 
 
-def standardise_divide(inp_mention: str) -> str:
-    '''
-    Converts all units into dict of numerator and denominator (removes all "/" and "-1")
-    '''
-    # find up to first /
-    # match1= reg.findall(r"^(.*?)(?=/)", inp_mention)
-    if len(re.findall("/", inp_mention))>=1:
-        splt= inp_mention.split("/")
-        minus_list= []
-        for item in splt:
-            if re.findall("-\d+|−\d+", item):
-                minus_list.append(item)
-                print(item)
+###############################################################################
 
-        #convert minus items to correct format
-        #replace minus items in original list
-        nominator= splt[0]
-        denominator = '.'.join(splt[1:])
-
-    #when more than 1 slash
-    #inp_mention =
-    #that ahead of dash is numerator and that after is denominator (however nb that a second dash can be considered as a multiplication)
-
-
-    r2 = re.findall("-\d+|−\d+", inp_mention)
-    replace_list= []
-    print(r2)
-    #need to separate if these are in brackets
-    if len(r2)>=1:
-        print("there are more than 1 minus digit")
-        #for i in r2:
-            #inp_mention = inp_mention.replace(i, replace_list)
-
+def check_for_divide(inp_mention: str) -> str:
+    if len(inp_mention.split("/")) > 1:
+        splt_on_divide = inp_mention.split("/")
+        replaced_divides = ["(" + item + ")-1" for item in splt_on_divide[1:]]
+        replaced_divides.insert(0, splt_on_divide[0])
+        inp_mention = "·".join(replaced_divides)
     return inp_mention
 
 
-test_ones = ["·10−6·cm/s/h",  "ng·ml(-1)·h(-1)", "μmol·l−1", "l·(kg·h)(-1)"]
+def check_for_brackets(inp_mention: str) -> str:
+    if len(re.findall(r"\((.*?)\)\(-\d+\)|\((.*?)\)\(−\d+\)", inp_mention)) >= 1:
+        # split on dots outside of brackets only
+        dot_split = re.split("\·(?![^()*])", inp_mention)
+        brackets_split = [re.split("\((.*?)\)|\((.*?)\)", xnominator) for xnominator in dot_split]
+        brackets_split = [[x for x in i if (x != "" and x is not None)] for i in brackets_split]
+        # brackets_split = [[x for x in i if x != None] for i in brackets_split]
+        brackets_split = [[i.strip("(").strip(")") for i in x] for x in brackets_split]
+        final_split = [[i.replace("−", "-") for i in x] for x in brackets_split]
+    elif len(re.findall("\(-(?:\d)\)|\(−(?:\d)\)|-(?:\d)|−(?:\d)", inp_mention)) >= 1:
+        # split on -digits
+        dot_split = re.split("·", inp_mention)
+        # minus = re.findall("\(-\d+\)|\(−\d+\)|-\d+|−\d+", item)
+        minus_one_split = [re.split("\((-\d)\)|\((−\d)\)|(-\d)|(−\d)", x) for x in dot_split]
+        minus_one_split = [[x for x in i if x != ""] for i in minus_one_split]
+        minus_one_split = [[x for x in i if x is not None] for i in minus_one_split]
+        minus_one_split = [[i.strip("(").strip(")") for i in x] for x in minus_one_split]
+        final_split = [[i.replace("−", "-") for i in x] for x in minus_one_split]
+    else:
+        final_split = inp_mention
+
+    return final_split
+
+
+def standardise_divide(inp_mention: str) -> str:
+    """
+    Converts all units into dict of numerator and denominator (removes all "/" and "-1")
+    N.B. second slash equivalent to multiplication
+    """
+    # check for / and convert all to -1
+    inp_mention = check_for_divide(inp_mention)
+
+    # check for brackets
+    units_split = check_for_brackets(inp_mention)
+
+    # convert -1s to nominators and denominators
+    num_list = []
+    minus_list = []
+    denom_list = []
+
+    # add all those without -digits to nominator list
+    num_list = [sublist for sublist in units_split if len(sublist) == 1]
+    minus_list = [x for x in units_split if x not in num_list]
+
+    # sort out if any minus digits that are not 1s
+    updated_minus_list = []
+    denom_list = []
+    for sublist in minus_list:
+        if sublist[1] != "-1":
+            power = sublist[1].replace("-", "^")
+            subject = "(" + sublist[0] + ")"
+            new_sublist = "".join([subject, power])
+            denom_list.append([new_sublist])
+        else:
+            new_subject = sublist[0]
+            updated_minus_list.append([new_subject])
+
+    # get final denominator and nominator lists
+    add_to_denom_list = updated_minus_list[0::2]
+    add_to_nom_list = updated_minus_list[1::2]
+    num_list.extend(add_to_nom_list)
+    denom_list.extend(add_to_denom_list)
+    num_list = [item for sublist in num_list for item in sublist]
+    denom_list = [item for sublist in denom_list for item in sublist]
+
+    # join elements with mutliplication sign
+    numerator = "·".join(num_list)
+    denominator = "·".join(denom_list)
+    print(numerator, "/", denominator)
+
+    return numerator, denominator
+
+
+test_ones = ["10−6·cm/s/h", "ng·ml(-1)·h(-1)", "l·(kg·h)(-1)", "μmol·l−1"]
 for x in test_ones:
     t2 = standardise_unit(x)
     final = standardise_divide(t2)
