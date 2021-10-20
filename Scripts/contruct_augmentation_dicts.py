@@ -32,7 +32,7 @@ def main(
                     original.append(units_mention)
                     units_mention = pkaug.standardise_unit(units_mention)
                     #########
-                    #units_mention = pkaug.standardise_divide(units_mention)
+                    # units_mention = pkaug.standardise_divide(units_mention)
                     ###########
                     standard.append(units_mention)
                     all_unit_mentions.append(units_mention)
@@ -54,6 +54,10 @@ def main(
                                         param_units_dict[units_mention] = [pk_mention]
 
     counts_units = Counter(all_unit_mentions).most_common()
+
+    counts_original_units = Counter(original).most_common()
+    pd.DataFrame(counts_original_units, columns=['unit_mention', 'frequency']).to_csv(
+        "../data/dictionaries/original_output_freqs.csv")
 
     already_printed = []
     for x, y in zip(original, standard):

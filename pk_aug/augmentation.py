@@ -1,6 +1,5 @@
 import re
-from typing import List, Dict
-import regex as reg
+from typing import List, Dict, Tuple
 
 TO_REMOVE = []  # ['[', '(', ']', ')']
 DOT_SYNS = ['x', '*', '×', '•', ' ', '⋅']
@@ -108,22 +107,19 @@ def check_for_divide(inp_mention: str) -> str:
     return inp_mention
 
 
-def check_for_brackets(inp_mention: str) -> str:
+def check_for_brackets(inp_mention: str) -> List:
     if len(re.findall(r"\((.*?)\)\(-\d+\)|\((.*?)\)\(−\d+\)", inp_mention)) >= 1:
         # split on dots outside of brackets only
-        dot_split = re.split("\·(?![^()*])", inp_mention)
-        brackets_split = [re.split("\((.*?)\)|\((.*?)\)", xnominator) for xnominator in dot_split]
+        dot_split = re.split(r"·(?![^()*])", inp_mention)
+        brackets_split = [re.split(r"\((.*?)\)", xnominator) for xnominator in dot_split]
         brackets_split = [[x for x in i if (x != "" and x is not None)] for i in brackets_split]
-        # brackets_split = [[x for x in i if x != None] for i in brackets_split]
         brackets_split = [[i.strip("(").strip(")") for i in x] for x in brackets_split]
         final_split = [[i.replace("−", "-") for i in x] for x in brackets_split]
-    elif len(re.findall("\(-(?:\d)\)|\(−(?:\d)\)|-(?:\d)|−(?:\d)", inp_mention)) >= 1:
+    elif len(re.findall(r"\(-(\d)\)|\(−(\d)\)|-(\d)|−(\d)", inp_mention)) >= 1:
         # split on -digits
         dot_split = re.split("·", inp_mention)
-        # minus = re.findall("\(-\d+\)|\(−\d+\)|-\d+|−\d+", item)
-        minus_one_split = [re.split("\((-\d)\)|\((−\d)\)|(-\d)|(−\d)", x) for x in dot_split]
-        minus_one_split = [[x for x in i if x != ""] for i in minus_one_split]
-        minus_one_split = [[x for x in i if x is not None] for i in minus_one_split]
+        minus_one_split = [re.split(r"\((-\d)\)|\((−\d)\)|(-\d)|(−\d)", x) for x in dot_split]
+        minus_one_split = [[x for x in i if (x != "" and x is not None)] for i in minus_one_split]
         minus_one_split = [[i.strip("(").strip(")") for i in x] for x in minus_one_split]
         final_split = [[i.replace("−", "-") for i in x] for x in minus_one_split]
     else:
@@ -132,7 +128,7 @@ def check_for_brackets(inp_mention: str) -> str:
     return final_split
 
 
-def standardise_divide(inp_mention: str) -> str:
+def standardise_divide(inp_mention: str) -> Tuple:
     """
     Converts all units into dict of numerator and denominator (removes all "/" and "-1")
     N.B. second slash equivalent to multiplication
