@@ -100,30 +100,36 @@ def standardise_unit(inp_mention: str) -> str:
 
 def check_for_divide(inp_mention: str) -> str:
     if len(inp_mention.split("/")) > 1:
-        splt_on_divide = inp_mention.split("/")
-        replaced_divides = ["(" + item + ")-1" for item in splt_on_divide[1:]]
-        replaced_divides.insert(0, splt_on_divide[0])
-        inp_mention = "·".join(replaced_divides)
-    return inp_mention
+        splt_on_divide = inp_mention.split("/", 1)
+        replaced_second_divide = [x.replace("/", "·") for x in splt_on_divide]
+        replaced_second_divide = ["(" + item + ")(-1)" for item in replaced_second_divide[1:]]
+        replaced_second_divide.insert(0, splt_on_divide[0])
+        new_inp_mention = "·".join(replaced_second_divide)
+        new_inp_mention = new_inp_mention.strip("·")
+    else:
+        new_inp_mention = inp_mention
+
+    return new_inp_mention
 
 
 def check_for_brackets(inp_mention: str) -> List:
     if len(re.findall(r"\((.*?)\)\(-\d+\)|\((.*?)\)\(−\d+\)", inp_mention)) >= 1:
         # split on dots outside of brackets only
-        dot_split = re.split(r"·(?![^()*])", inp_mention)
-        brackets_split = [re.split(r"\((.*?)\)", xnominator) for xnominator in dot_split]
-        brackets_split = [[x for x in i if (x != "" and x is not None)] for i in brackets_split]
-        brackets_split = [[i.strip("(").strip(")") for i in x] for x in brackets_split]
-        final_split = [[i.replace("−", "-") for i in x] for x in brackets_split]
+        dot_split = re.split(r"\\·(?=[^\)]*(?:\(|$))", inp_mention)
+        brackets_split = [re.split(r"\((.*?)\)", dot) and re.split(r"(-\d)|(−\d)", dot) for dot in dot_split]
+        brackets_split = [[bracket for bracket in i if bracket is not None] for i in brackets_split]
+        brackets_split = [[num_bracket.strip("(){}[]") for num_bracket in i] for i in brackets_split]
+        brackets_split = [[bracket for bracket in i if bracket != ""] for i in brackets_split]
+        final_split = [[strip_bracket.replace("−", "-") for strip_bracket in i] for i in brackets_split]
     elif len(re.findall(r"\(-(\d)\)|\(−(\d)\)|-(\d)|−(\d)", inp_mention)) >= 1:
         # split on -digits
-        dot_split = re.split("·", inp_mention)
-        minus_one_split = [re.split(r"\((-\d)\)|\((−\d)\)|(-\d)|(−\d)", x) for x in dot_split]
-        minus_one_split = [[x for x in i if (x != "" and x is not None)] for i in minus_one_split]
-        minus_one_split = [[i.strip("(").strip(")") for i in x] for x in minus_one_split]
-        final_split = [[i.replace("−", "-") for i in x] for x in minus_one_split]
+        dot_split = re.split(r"\\·", inp_mention)
+        minus_one_split = [re.split(r"\((-\d)\)|\((−\d)\)|(-\d)|(−\d)", dot2) for dot2 in dot_split]
+        minus_one_split = [[minus for minus in i if (minus != "" and minus is not None)] for i in minus_one_split]
+        minus_one_split = [[num_minus.strip("(){}[]")for num_minus in i] for i in minus_one_split]
+        final_split = [[strip_minus.replace("−", "-") for strip_minus in i] for i in minus_one_split]
     else:
-        final_split = inp_mention
+        final_split = [[inp_mention]]
 
     return final_split
 
@@ -142,14 +148,12 @@ def standardise_divide(inp_mention: str) -> Tuple:
     # convert -1s to nominators and denominators
     num_list = []
     minus_list = []
-    denom_list = []
 
     # add all those without -digits to nominator list
     num_list = [sublist for sublist in units_split if len(sublist) == 1]
-    minus_list = [x for x in units_split if x not in num_list]
+    minus_list = [sub for sub in units_split if sub not in num_list]
 
     # sort out if any minus digits that are not 1s
-    updated_minus_list = []
     denom_list = []
     for sublist in minus_list:
         if sublist[1] != "-1":
@@ -159,13 +163,9 @@ def standardise_divide(inp_mention: str) -> Tuple:
             denom_list.append([new_sublist])
         else:
             new_subject = sublist[0]
-            updated_minus_list.append([new_subject])
+            denom_list.append([new_subject])
 
     # get final denominator and nominator lists
-    add_to_denom_list = updated_minus_list[0::2]
-    add_to_nom_list = updated_minus_list[1::2]
-    num_list.extend(add_to_nom_list)
-    denom_list.extend(add_to_denom_list)
     num_list = [item for sublist in num_list for item in sublist]
     denom_list = [item for sublist in denom_list for item in sublist]
 
@@ -177,7 +177,7 @@ def standardise_divide(inp_mention: str) -> Tuple:
     return numerator, denominator
 
 
-test_ones = ["10−6·cm/s/h", "ng·ml(-1)·h(-1)", "l·(kg·h)(-1)", "μmol·l−1"]
+test_ones = ["l·h(-1)·70·kg(-1)", "/h", "ng·h·ml", "10−6·cm/s/h", "ng·ml(-1)·h(-1)", "l·(kg·h)(-1)", "μmol·l−1"]
 for x in test_ones:
     t2 = standardise_unit(x)
     final = standardise_divide(t2)
