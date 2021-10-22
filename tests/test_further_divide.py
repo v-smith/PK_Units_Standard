@@ -17,6 +17,7 @@ EXPECTED_DICTS_2 = [
     {"unit": "μl/min/mg·protein", "num": "μl", "denom": "min·mg·protein"}, #passed
     {"unit": "(ml·h−1)·kg−1", "num": "ml", "denom": "h·kg"}, #passed
     {"unit": "l·h(-1)·70·kg(-1)", "num": "l", "denom": "h·70·kg"},
+    {"unit": "l·(kg·h)-1", "num": "l", "denom": "kg·h"}
     # {"unit": "ml·h-1·kg-1", "num": "ml", "denom": "h·kg"},
 
 ]

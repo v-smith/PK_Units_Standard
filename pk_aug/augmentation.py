@@ -105,11 +105,9 @@ def check_for_divide(inp_mention: str) -> str:
         replaced_second_divide = ["(" + item + ")(-1)" for item in replaced_second_divide[1:]]
         replaced_second_divide.insert(0, splt_on_divide[0])
         new_inp_mention = "·".join(replaced_second_divide)
-        new_inp_mention = new_inp_mention.strip("·")
-    else:
-        new_inp_mention = inp_mention
+        return new_inp_mention.strip("·")
 
-    return new_inp_mention
+    return inp_mention
 
 
 def check_weight_dot_split(inp_mention: str) -> List:
@@ -142,7 +140,7 @@ def check_weight_bracket_dot_split(inp_mention: str) -> List:
 
 
 def check_for_brackets(inp_mention: str) -> List:
-    if len(re.findall(r"\((.*?)\)\(-\d+\)|\((.*?)\)\(−\d+\)", inp_mention)) >= 1:
+    if len(re.findall(r"\((.*?)\)-\d+|\((.*?)\)−\d+|\((.*?)\)\(-\d+\)|\((.*?)\)\(−\d+\)", inp_mention)) >= 1:
         # split on dots outside of brackets only
         dot_split = check_weight_bracket_dot_split(inp_mention)
         brackets_split = [re.split(r"\((.*?)\)", dot) and re.split(r"(-\d)|(−\d)", dot) for dot in dot_split]
@@ -205,7 +203,7 @@ def standardise_divide(inp_mention: str) -> Tuple:
     return numerator, denominator
 
 
-test_ones = ["l·h(-1)·70·kg(-1)", "l/h/70·kg", "h-1", "/h", "ng·h·ml", "10−6·cm/s/h", "ng·ml(-1)·h(-1)", "μmol·l−1", "l·(kg·h)(-1)"]
+test_ones = ["micrograms/ml", "l·h(-1)·70·kg(-1)", "l/h/70·kg", "h-1", "/h", "ng·h·ml", "10−6·cm/s/h", "ng·ml(-1)·h(-1)", "μmol·l−1", "l·(kg·h)(-1)"]
 for x in test_ones:
     t2 = standardise_unit(x)
     final = standardise_divide(t2)
