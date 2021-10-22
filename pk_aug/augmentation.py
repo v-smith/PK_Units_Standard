@@ -112,21 +112,49 @@ def check_for_divide(inp_mention: str) -> str:
     return new_inp_mention
 
 
+def check_weight_dot_split(inp_mention: str) -> List:
+    if len(re.findall("70·kg\(-1\)|70·kg-1|70·\(kg\)-1", inp_mention))>=1:
+        weight_split = re.split("70·kg\(-1\)|70·kg-1|70·\(kg\)-1", inp_mention)
+        weight_split = [minus for minus in weight_split if (minus != "" and minus is not None)]
+        weight_split = "".join(weight_split)
+        dot_split = re.split(r"·", weight_split)
+        dot_split.extend(["70·kg(-1)"])
+        dot_split = [dot for dot in dot_split if (dot != "" and dot is not None)]
+    else:
+        dot_split = re.split(r"·", inp_mention)
+        dot_split = [dot for dot in dot_split if (dot != "" and dot is not None)]
+
+    return dot_split
+
+
+def check_weight_bracket_dot_split(inp_mention: str) -> List:
+    if len(re.findall("70·kg\(-1\)|70·kg-1|70·\(kg\)-1", inp_mention))>=1:
+        weight_split = re.split("70·kg\(-1\)|70·kg-1|70·\(kg\)-1", inp_mention)
+        weight_split = [minus for minus in weight_split if (minus != "" and minus is not None)]
+        weight_split = "".join(weight_split)
+        dot_split = re.split(r"·(?=[^\)]*(?:\(|$))", weight_split)
+        dot_split.extend(["70·kg(-1)"])
+        dot_split = [dot for dot in dot_split if (dot != "" and dot is not None)]
+    else:
+        dot_split = re.split(r"·(?=[^\)]*(?:\(|$))", inp_mention)
+        dot_split = [dot for dot in dot_split if (dot != "" and dot is not None)]
+    return dot_split
+
+
 def check_for_brackets(inp_mention: str) -> List:
     if len(re.findall(r"\((.*?)\)\(-\d+\)|\((.*?)\)\(−\d+\)", inp_mention)) >= 1:
         # split on dots outside of brackets only
-        dot_split = re.split(r"\\·(?=[^\)]*(?:\(|$))", inp_mention)
+        dot_split = check_weight_bracket_dot_split(inp_mention)
         brackets_split = [re.split(r"\((.*?)\)", dot) and re.split(r"(-\d)|(−\d)", dot) for dot in dot_split]
         brackets_split = [[bracket for bracket in i if bracket is not None] for i in brackets_split]
         brackets_split = [[num_bracket.strip("(){}[]") for num_bracket in i] for i in brackets_split]
         brackets_split = [[bracket for bracket in i if bracket != ""] for i in brackets_split]
         final_split = [[strip_bracket.replace("−", "-") for strip_bracket in i] for i in brackets_split]
     elif len(re.findall(r"\(-(\d)\)|\(−(\d)\)|-(\d)|−(\d)", inp_mention)) >= 1:
-        # split on -digits
-        dot_split = re.split(r"\\·", inp_mention)
+        dot_split = check_weight_dot_split(inp_mention)
         minus_one_split = [re.split(r"\((-\d)\)|\((−\d)\)|(-\d)|(−\d)", dot2) for dot2 in dot_split]
         minus_one_split = [[minus for minus in i if (minus != "" and minus is not None)] for i in minus_one_split]
-        minus_one_split = [[num_minus.strip("(){}[]")for num_minus in i] for i in minus_one_split]
+        minus_one_split = [[num_minus.strip("(){}[]") for num_minus in i] for i in minus_one_split]
         final_split = [[strip_minus.replace("−", "-") for strip_minus in i] for i in minus_one_split]
     else:
         final_split = [[inp_mention]]
@@ -177,7 +205,7 @@ def standardise_divide(inp_mention: str) -> Tuple:
     return numerator, denominator
 
 
-test_ones = ["l·h(-1)·70·kg(-1)", "/h", "ng·h·ml", "10−6·cm/s/h", "ng·ml(-1)·h(-1)", "l·(kg·h)(-1)", "μmol·l−1"]
+test_ones = ["l·h(-1)·70·kg(-1)", "l/h/70·kg", "h-1", "/h", "ng·h·ml", "10−6·cm/s/h", "ng·ml(-1)·h(-1)", "μmol·l−1", "l·(kg·h)(-1)"]
 for x in test_ones:
     t2 = standardise_unit(x)
     final = standardise_divide(t2)
