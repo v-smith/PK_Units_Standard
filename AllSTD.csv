@@ -1,0 +1,378 @@
+Mention_frequency,Mention,Standardised,Magnitudes,All_as_Mag
+537,h,h,TIME,True
+279,%,%,%,False
+237,hours,h,TIME,True
+221,min,min,TIME,True
+140,ng/mL,[ng] / [ml],MASS / VOLUME,True
+80,ng/ml,[ng] / [ml],MASS / VOLUME,True
+71,hr,h,TIME,True
+52,L/kg,[l] / [kg],VOLUME / MASS,True
+46,days,d,TIME,True
+45,μg/mL,[μg] / [ml],MASS / VOLUME,True
+43,L/h,[l] / [h],VOLUME / TIME,True
+43,micrograms/ml,[μg] / [ml],MASS / VOLUME,True
+42,l/kg,[l] / [kg],VOLUME / MASS,True
+42,L,l,VOLUME,True
+38,minutes,min,TIME,True
+34,ml/min/kg,[ml] / [kg·min],VOLUME / MASS·TIME,True
+32,ml/min,[ml] / [min],VOLUME / TIME,True
+30,μM,μM,CONCENTRATION,True
+27,mg/L,[mg] / [l],MASS / VOLUME,True
+24,mL/min,[ml] / [min],VOLUME / TIME,True
+23,l,l,VOLUME,True
+22,l/h,[l] / [h],VOLUME / TIME,True
+22,µg/mL,[µg] / [ml],µg / VOLUME,False
+22,L/h/kg,[l] / [h·kg],VOLUME / TIME·MASS,True
+21,μg/ml,[μg] / [ml],MASS / VOLUME,True
+19,nM,nM,CONCENTRATION,True
+18,mg/l,[mg] / [l],MASS / VOLUME,True
+17,ng*h/mL,[h·ng] / [ml],TIME·MASS / VOLUME,True
+17,mL/min/kg,[ml] / [kg·min],VOLUME / MASS·TIME,True
+17,microM,μM,CONCENTRATION,True
+13,microg/ml,[μg] / [ml],MASS / VOLUME,True
+12,liters,l,VOLUME,True
+12,μg h/mL,[h·μg] / [ml],TIME·MASS / VOLUME,True
+12,h.ng-eq/g,[h·ng-eq] / [g],TIME·ng-eq / MASS,False
+12,ng·h·mL−1,[h·ng] / [ml],TIME·MASS / VOLUME,True
+12,l h-1 kg-1,[l] / [h·kg],VOLUME / TIME·MASS,True
+12,ng h/mL,[h·ng] / [ml],TIME·MASS / VOLUME,True
+12,mg/L*min,[mg] / [l·min],MASS / VOLUME·TIME,True
+11,h(-1),1/[h],1/[TIME],True
+11,l/h/kg,[l] / [h·kg],VOLUME / TIME·MASS,True
+10,ng/g,[ng] / [g],MASS / MASS,True
+10,ng x h/ml,[h·ng] / [ml],TIME·MASS / VOLUME,True
+10,μg/L,[μg] / [l],MASS / VOLUME,True
+9,μM·h,h·μM,TIME·CONCENTRATION,True
+9,ml/min per kg,[ml] / [kg·min],VOLUME / MASS·TIME,True
+9,ml/kg,[ml] / [kg],VOLUME / MASS,True
+9,h−1,1/[h],1/[TIME],True
+8,μmol/L,[μmol] / [l],μmol / VOLUME,False
+8,ng.hr/ml,[h·ng] / [ml],TIME·MASS / VOLUME,True
+8,ng · h/mL,[h·ng] / [ml],TIME·MASS / VOLUME,True
+8,micro g/mL,[μg] / [ml],MASS / VOLUME,True
+8,liters/h,[l] / [h],VOLUME / TIME,True
+8,ml.min-1.kg-1,[ml] / [kg·min],VOLUME / MASS·TIME,True
+8,micrograms/dl,[μg] / [dl],MASS / dl,False
+8,µg·hr/ml,[h·µg] / [ml],TIME·µg / VOLUME,False
+8,l kg-1,[l] / [kg],VOLUME / MASS,True
+8,mL/h/kg,[ml] / [h·kg],VOLUME / TIME·MASS,True
+8,ng·h/mL/mg,[h·ng] / [mg·ml],TIME·MASS / MASS·VOLUME,True
+8,ng.h/ml,[h·ng] / [ml],TIME·MASS / VOLUME,True
+8,ml/s,[ml] / [s],VOLUME / TIME,True
+8,mL,ml,VOLUME,True
+8,mins,min,TIME,True
+8,nmol/lx60 min,[nM] / [60·l·min],CONCENTRATION / 60·VOLUME·TIME,False
+8,liter/kg,[l] / [kg],VOLUME / MASS,True
+8,ng.h/mL,[h·ng] / [ml],TIME·MASS / VOLUME,True
+7,hr-1,1/[h],1/[TIME],True
+7,μg·h/mL,[h·μg] / [ml],TIME·MASS / VOLUME,True
+7,µg/ml,[µg] / [ml],µg / VOLUME,False
+7,ml/h/kg,[ml] / [h·kg],VOLUME / TIME·MASS,True
+7,ml,ml,VOLUME,True
+7,ml min-1 kg-1,[ml] / [kg·min],VOLUME / MASS·TIME,True
+7,hour,h,TIME,True
+7,mmol/L,[mM] / [l],CONCENTRATION / VOLUME,True
+7,ng·h/mL,[h·ng] / [ml],TIME·MASS / VOLUME,True
+6,μg·h/ml,[h·μg] / [ml],TIME·MASS / VOLUME,True
+6,IU dL(-1) per IU kg(-1),[iu·iu] / [dl·kg],iu·iu / dl·MASS,False
+6,ng·hr/mL,[h·ng] / [ml],TIME·MASS / VOLUME,True
+6,µL/min,[µl] / [min],VOLUME / TIME,True
+6,h.ng/ml,[h·ng] / [ml],TIME·MASS / VOLUME,True
+6,ng/h/ml,[ng] / [h·ml],MASS / TIME·VOLUME,True
+6,mL·h-1·kg-1,[ml] / [h·kg],VOLUME / TIME·MASS,True
+6,min-1,1/[min],1/[TIME],True
+6,ng h mL-1,[h·ng] / [ml],TIME·MASS / VOLUME,True
+6,ml min-1,[ml] / [min],VOLUME / TIME,True
+6,liters/kg,[l] / [kg],VOLUME / MASS,True
+6,microg x h/ml,[h·μg] / [ml],TIME·MASS / VOLUME,True
+6,ng-eq/g,[ng-eq] / [g],ng-eq / MASS,False
+5,mg,mg,MASS,True
+5,h*ng/mL,[h·ng] / [ml],TIME·MASS / VOLUME,True
+5,microg/mL,[μg] / [ml],MASS / VOLUME,True
+5,µg/L,[µg] / [l],µg / VOLUME,False
+5,mg·h/L,[h·mg] / [l],TIME·MASS / VOLUME,True
+5,ng X ml-1 X hr,[h·ng] / [ml],TIME·MASS / VOLUME,True
+5,mL/h,[ml] / [h],VOLUME / TIME,True
+5,ml/h,[ml] / [h],VOLUME / TIME,True
+5,mg/liter,[mg] / [l],MASS / VOLUME,True
+5,μg min/mL,[min·μg] / [ml],TIME·MASS / VOLUME,True
+4,/hour,1/[h],1/[TIME],True
+4,micrograms/L,[μg] / [l],MASS / VOLUME,True
+4,μmol l−1,[μmol] / [l],μmol / VOLUME,False
+4,mmol/L*h,[mM] / [h·l],CONCENTRATION / TIME·VOLUME,True
+4,ng h ml(-1),[h·ng] / [ml],TIME·MASS / VOLUME,True
+4,ml/kg per min,[ml] / [kg·min],VOLUME / MASS·TIME,True
+4,mug/ml,[mug] / [ml],mug / VOLUME,False
+4,micro M,μM,CONCENTRATION,True
+4,mmol/(L. h),[mM] / [h·l],CONCENTRATION / TIME·VOLUME,True
+4,day-1,1/[d],1/[TIME],True
+4,micrograms/liter,[μg] / [l],MASS / VOLUME,True
+4,mg/mL,[mg] / [ml],MASS / VOLUME,True
+4,μg·h−1·mL−1,[μg] / [h·ml],MASS / TIME·VOLUME,True
+4,μg·h/L,[h·μg] / [l],TIME·MASS / VOLUME,True
+4,μg·min/mL,[min·μg] / [ml],TIME·MASS / VOLUME,True
+4,micrograms hr/dl,[h·μg] / [dl],TIME·MASS / dl,False
+4,pmol/mL,[pM] / [ml],CONCENTRATION / VOLUME,True
+4,μg*h/L,[h·μg] / [l],TIME·MASS / VOLUME,True
+4,microg ml(-1) h,[h·μg] / [ml],TIME·MASS / VOLUME,True
+4,ng.ml-1,[ng] / [ml],MASS / VOLUME,True
+4,nmol·days/L/mg,[d·nM] / [l·mg],TIME·CONCENTRATION / VOLUME·MASS,True
+4,ml hr-1 kg-1,[ml] / [h·kg],VOLUME / TIME·MASS,True
+4,mIU.h/ml,[h·miu] / [ml],TIME·miu / VOLUME,False
+4,µmol*h/L,[h·µmol] / [l],TIME·µmol / VOLUME,False
+4,mL/minute/kg,[ml] / [kg·min],VOLUME / MASS·TIME,True
+4,mL/kg,[ml] / [kg],VOLUME / MASS,True
+4,litres,l,VOLUME,True
+4,ng/ml.mg,[ng] / [mg·ml],MASS / MASS·VOLUME,True
+4,ng·mL−1,[ng] / [ml],MASS / VOLUME,True
+4,mg l(-1) h,[h·mg] / [l],TIME·MASS / VOLUME,True
+4,ml X kg-1 X min.-1,[-1·min·ml] / [kg],-1·TIME·VOLUME / MASS,False
+4,μg · h/L,[h·μg] / [l],TIME·MASS / VOLUME,True
+4,µg L/h,[l·µg] / [h],VOLUME·µg / TIME,False
+4,µg·mL−1,[µg] / [ml],µg / VOLUME,False
+4,ng · h/ml,[h·ng] / [ml],TIME·MASS / VOLUME,True
+4,liter/kg/h,[l] / [h·kg],VOLUME / TIME·MASS,True
+4,mL h-1 kg-1,[ml] / [h·kg],VOLUME / TIME·MASS,True
+4,micromol,μM,CONCENTRATION,True
+4,mg l-1,[mg] / [l],MASS / VOLUME,True
+4,mg h l–1,h·l–1·mg,TIME·l–1·MASS,False
+4,mmol/L*min,[mM] / [l·min],CONCENTRATION / VOLUME·TIME,True
+4,μg·ml−1,[μg] / [ml],MASS / VOLUME,True
+4,d,d,TIME,True
+4,ml/kg/minute,[ml] / [kg·min],VOLUME / MASS·TIME,True
+4,micrograms/l,[μg] / [l],MASS / VOLUME,True
+4,l/min,[l] / [min],VOLUME / TIME,True
+4,μg/g,[μg] / [g],MASS / MASS,True
+4,mg x h/L,[h·mg] / [l],TIME·MASS / VOLUME,True
+4,ng mL-1,[ng] / [ml],MASS / VOLUME,True
+4,mL/kg min,[ml] / [kg·min],VOLUME / MASS·TIME,True
+4,nmol/min/nmol,[nM] / [min·nM],CONCENTRATION / TIME·CONCENTRATION,True
+4,mg min l-1,[mg·min] / [l],MASS·TIME / VOLUME,True
+4,micrograms/mL,[μg] / [ml],MASS / VOLUME,True
+4,μg h/L,[h·μg] / [l],TIME·MASS / VOLUME,True
+4,h kg g L-1 mg-1,[g·h·kg] / [l·mg],MASS·TIME·MASS / VOLUME·MASS,True
+4,mg hr/l,[h·mg] / [l],TIME·MASS / VOLUME,True
+4,mumol l-1,[μM] / [l],CONCENTRATION / VOLUME,True
+4,mg L-1 h-1,[mg] / [h·l],MASS / TIME·VOLUME,True
+4,microg l-1 h,[h·μg] / [l],TIME·MASS / VOLUME,True
+4,ml/kg/min,[ml] / [kg·min],VOLUME / MASS·TIME,True
+3,L/[h·kg],[l] / [h·kg],VOLUME / TIME·MASS,True
+3,l h(-1),[l] / [h],VOLUME / TIME,True
+3,µL/min/mg,[µl] / [mg·min],VOLUME / MASS·TIME,True
+3,months,months,months,False
+3,ng h/ml,[h·ng] / [ml],TIME·MASS / VOLUME,True
+3,micrograms h-1 ml-1,[μg] / [h·ml],MASS / TIME·VOLUME,True
+3,microgram/ml,[μg] / [ml],MASS / VOLUME,True
+3,L/day,[l] / [d],VOLUME / TIME,True
+3,microg h/ml,[h·μg] / [ml],TIME·MASS / VOLUME,True
+3,h·ng/mL,[h·ng] / [ml],TIME·MASS / VOLUME,True
+3,liters/kg/hour,[l] / [h·kg],VOLUME / TIME·MASS,True
+3,ng/ml.h,[ng] / [h·ml],MASS / TIME·VOLUME,True
+3,ms,ms,ms,False
+3,nM.h,h·nM,TIME·CONCENTRATION,True
+3,l h−1,[l] / [h],VOLUME / TIME,True
+3,ng • h/mL,[h·ng] / [ml],TIME·MASS / VOLUME,True
+3,micrograms/cm2/hr,[μg] / [cm2·h],MASS / cm2·TIME,False
+3,µg h/mL,[h·µg] / [ml],TIME·µg / VOLUME,False
+3,ng ml−1·h,[h·ng] / [ml],TIME·MASS / VOLUME,True
+3,mg × m2 × h/L × mg,[h·m2·mg] / [l·mg],TIME·m2·MASS / VOLUME·MASS,False
+3,L/hr,[l] / [h],VOLUME / TIME,True
+3,nmol x min x l(-1),[min·nM] / [l],TIME·CONCENTRATION / VOLUME,True
+3,ml/min/m2,[ml] / [m2·min],VOLUME / m2·TIME,False
+3,ng BDP/L,[bdp·ng] / [l],bdp·MASS / VOLUME,False
+3,cm/s,[cm] / [s],cm / TIME,False
+3,L/h/70 kg,[l] / [70·h·kg],VOLUME / 70·TIME·MASS,False
+3,µM,µM,µM,False
+3,/h,1/[h],1/[TIME],True
+3,ng ml-1,[ng] / [ml],MASS / VOLUME,True
+2,h·mg/L,[h·mg] / [l],TIME·MASS / VOLUME,True
+2,mIU/L,[miu] / [l],miu / VOLUME,False
+2,% w/w,[%·w] / [w],%·w / w,False
+2,ug*hr/mL,[h·ug] / [ml],TIME·ug / VOLUME,False
+2,ng g(-1),[ng] / [g],MASS / MASS,True
+2,ng ml(-1),[ng] / [ml],MASS / VOLUME,True
+2,l/h/m(2),[h·l] / [m(2],TIME·VOLUME / m(2,False
+2,mg/L·h,[mg] / [h·l],MASS / TIME·VOLUME,True
+2,h*μg/ml,[h·μg] / [ml],TIME·MASS / VOLUME,True
+2,mg.h,h·mg,TIME·MASS,True
+2,μg L−1,[μg] / [l],MASS / VOLUME,True
+2,mIU/litre,[miu] / [l],miu / VOLUME,False
+2,microg/mL.h,[μg] / [h·ml],MASS / TIME·VOLUME,True
+2,μg*h/mL,[h·μg] / [ml],TIME·MASS / VOLUME,True
+2,microg.h/mL,[h·μg] / [ml],TIME·MASS / VOLUME,True
+2,ng x ml(-1) x h,[h·ng] / [ml],TIME·MASS / VOLUME,True
+2,micromol l(-1),[μM] / [l],CONCENTRATION / VOLUME,True
+2,micro M. h,h·μM,TIME·CONCENTRATION,True
+2,l/kg/hr,[l] / [h·kg],VOLUME / TIME·MASS,True
+2,per cent,%,%,False
+2,liters/hour,[l] / [h],VOLUME / TIME,True
+2,microM min,min·μM,TIME·CONCENTRATION,True
+2,ng·hour/mL,[h·ng] / [ml],TIME·MASS / VOLUME,True
+2,nmol/1,[nM] / [1],CONCENTRATION / 1,False
+2,h·μg·mL-1,[h·μg] / [ml],TIME·MASS / VOLUME,True
+2,l kg−1,[l] / [kg],VOLUME / MASS,True
+2,nm,nm,nm,False
+2,h.ng/mL,[h·ng] / [ml],TIME·MASS / VOLUME,True
+2,μg/h,[μg] / [h],MASS / TIME,True
+2,ng⋅h/mL,[h·ng] / [ml],TIME·MASS / VOLUME,True
+2,ng ml-1 h,[h·ng] / [ml],TIME·MASS / VOLUME,True
+2,L/h/Kg,[l] / [h·kg],VOLUME / TIME·MASS,True
+2,L/Kg,[l] / [kg],VOLUME / MASS,True
+2,ml/minute/kg,[ml] / [kg·min],VOLUME / MASS·TIME,True
+2,L/hour.kg,[l] / [h·kg],VOLUME / TIME·MASS,True
+2,ng min/mL,[min·ng] / [ml],TIME·MASS / VOLUME,True
+2,mmHg,mmhg,mmhg,False
+2,liters/kg/h,[l] / [h·kg],VOLUME / TIME·MASS,True
+2,mumol/l.h,[μM] / [h·l],CONCENTRATION / TIME·VOLUME,True
+2,× 10−6 cm/s,[cm] / [(10)^6·s],cm / (10)^6·TIME,False
+2,microg h ml(-l),h·ml(-l)·μg,TIME·ml(-l)·MASS,False
+2,ng·h·mL-1,[h·ng] / [ml],TIME·MASS / VOLUME,True
+2,× 10−7 cm/s,[cm] / [(10)^7·s],cm / (10)^7·TIME,False
+2,pmol/1,[pM] / [1],CONCENTRATION / 1,False
+2,ng x ml(-1) x h(-1),[ng] / [h·ml],MASS / TIME·VOLUME,True
+2,ml/min per kilogram,[ml] / [kg·min],VOLUME / MASS·TIME,True
+2,mL/(h*kg),[ml] / [h·kg],VOLUME / TIME·MASS,True
+2,ng.hr/mL,[h·ng] / [ml],TIME·MASS / VOLUME,True
+2,l/h/m2,[l] / [h·m2],VOLUME / TIME·m2,False
+2,ng h mL(-1),[h·ng] / [ml],TIME·MASS / VOLUME,True
+2,L kg(-1),[l] / [kg],VOLUME / MASS,True
+2,L h-1 kg(-1),[l] / [h·kg],VOLUME / TIME·MASS,True
+2,ng.h.ml-1,[h·ng] / [ml],TIME·MASS / VOLUME,True
+2,l./m2/hr,[l] / [h·m2],VOLUME / TIME·m2,False
+2,μg/kg,[μg] / [kg],MASS / MASS,True
+2,per year,1/[year],1/[year],False
+2,ng/ml x h,[ng] / [h·ml],MASS / TIME·VOLUME,True
+2,mg × h/L,[h·mg] / [l],TIME·MASS / VOLUME,True
+2,nmol·L−1·h,[h·nM] / [l],TIME·CONCENTRATION / VOLUME,True
+2,mg/min,[mg] / [min],MASS / TIME,True
+2,ngh/mL,[ngh] / [ml],ngh / VOLUME,False
+2,L. h(-1),[l] / [h],VOLUME / TIME,True
+2,μM × h,h·μM,TIME·CONCENTRATION,True
+2,h × ng/ml,[h·ng] / [ml],TIME·MASS / VOLUME,True
+2,s-1,1/[s],1/[TIME],True
+2,μg × hour/ml,[h·μg] / [ml],TIME·MASS / VOLUME,True
+2,L/kg/h,[l] / [h·kg],VOLUME / TIME·MASS,True
+2,nM−1h−1,1/[nM],1/[CONCENTRATION],True
+2,L/70 kg,[l] / [70·kg],VOLUME / 70·MASS,False
+2,mg/h/L,[mg] / [h·l],MASS / TIME·VOLUME,True
+2,g/ml,[g] / [ml],MASS / VOLUME,True
+2,μm,μm,μm,False
+2,L/kg/min,[l] / [kg·min],VOLUME / MASS·TIME,True
+2,ng/ml X h,[ng] / [h·ml],MASS / TIME·VOLUME,True
+2,pg/ml X h,[pg] / [h·ml],pg / TIME·VOLUME,False
+2,min(1),min(1),min(1),False
+2,mg X h X l-1,[h·mg] / [l],TIME·MASS / VOLUME,True
+2,lh(-1),1/[lh],1/[lh],False
+2,μg h/ml,[h·μg] / [ml],TIME·MASS / VOLUME,True
+2,L∙hr-1,1/[l∙hr],1/[l∙hr],False
+2,ng∙h/ml,[ng∙h] / [ml],ng∙h / VOLUME,False
+2,mg h/mL,[h·mg] / [ml],TIME·MASS / VOLUME,True
+2,liters/1.73 m2,[l] / [1.73·m2],VOLUME / 1.73·m2,False
+2,l.h(-1) 70 kg(-1),[l] / [70·h·kg],VOLUME / 70·TIME·MASS,False
+2,microg/L,[μg] / [l],MASS / VOLUME,True
+2,l/kg/h,[l] / [h·kg],VOLUME / TIME·MASS,True
+2,log10 CFU/mL,[cfu·log10] / [ml],cfu·log10 / VOLUME,False
+2,mg x min/mL,[mg·min] / [ml],MASS·TIME / VOLUME,True
+2,cm × min,cm·min,cm·TIME,False
+2,ng · h · mL,h·ml·ng,TIME·VOLUME·MASS,True
+2,mg/dl,[mg] / [dl],MASS / dl,False
+2,h μg ml−1,[h·μg] / [ml],TIME·MASS / VOLUME,True
+2,ml/hr/kg,[ml] / [h·kg],VOLUME / TIME·MASS,True
+2,mg×h/ml,[h·mg] / [ml],TIME·MASS / VOLUME,True
+2,μg/ ml,[μg] / [·ml],MASS / ·VOLUME,False
+2,g · day/L,[d·g] / [l],TIME·MASS / VOLUME,True
+2,mg.h.l-1,[h·mg] / [l],TIME·MASS / VOLUME,True
+2,mL/kg·min,[ml] / [kg·min],VOLUME / MASS·TIME,True
+2,μL/min/mg protein,[μl] / [mg·min·protein],μl / MASS·TIME·protein,False
+2,per hour,1/[h],1/[TIME],True
+2,hrs,h,TIME,True
+2,L/min,[l] / [min],VOLUME / TIME,True
+2,micrograms ml-1,[μg] / [ml],MASS / VOLUME,True
+2,l.kg-1,[l] / [kg],VOLUME / MASS,True
+2,L/h per 70 kg,[l] / [70·h·kg],VOLUME / 70·TIME·MASS,False
+2,mm3,mm3,mm3,False
+2,mg ml−1.min,[mg·min] / [ml],MASS·TIME / VOLUME,True
+2,ml/hr,[ml] / [h],VOLUME / TIME,True
+1,% receptor occupancy*hr,%·h·occupancy·receptor,%·TIME·occupancy·receptor,False
+1,h-1,1/[h],1/[TIME],True
+1,% receptor occupancy *hr,%·h·occupancy·receptor,%·TIME·occupancy·receptor,False
+1,meq/L,[meq] / [l],meq / VOLUME,False
+1,ng/mL h,[ng] / [h·ml],MASS / TIME·VOLUME,True
+1,L h(-1),[l] / [h],VOLUME / TIME,True
+1,L/d,[l] / [d],VOLUME / TIME,True
+1,ml min(-1) kg(-1),[ml] / [kg·min],VOLUME / MASS·TIME,True
+1,L x kg(-1),[l] / [kg],VOLUME / MASS,True
+1,muM,muM,muM,False
+1,h.mg/L,[h·mg] / [l],TIME·MASS / VOLUME,True
+1,L/h.kg,[l] / [h·kg],VOLUME / TIME·MASS,True
+1,micrograms,μg,MASS,True
+1,day,d,TIME,True
+1,mg x h x L(-1),[h·mg] / [l],TIME·MASS / VOLUME,True
+1,nmol/min/mg protein,[nM] / [mg·min·protein],CONCENTRATION / MASS·TIME·protein,False
+1,L/hr/kg,[l] / [h·kg],VOLUME / TIME·MASS,True
+1,L x (kg x h)(-1),[l] / [h·kg],VOLUME / TIME·MASS,True
+1,nM*hr,h·nM,TIME·CONCENTRATION,True
+1,μg h2/ml,[h2·μg] / [ml],h2·MASS / VOLUME,False
+1,μg⋅hr/mL,[h·μg] / [ml],TIME·MASS / VOLUME,True
+1,μg/h/mL,[μg] / [h·ml],MASS / TIME·VOLUME,True
+1,cm/sec (× 10−6),[cm·s] / [(·10)^6],cm·TIME / (·10)^6,False
+1,min(-1),1/[min],1/[TIME],True
+1,ng ml−1,[ng] / [ml],MASS / VOLUME,True
+1,mm,mm,mm,False
+1,nmol/L,[nM] / [l],CONCENTRATION / VOLUME,True
+1,micrograms l-1 h-1,[μg] / [h·l],MASS / TIME·VOLUME,True
+1,ng*h/ml,[h·ng] / [ml],TIME·MASS / VOLUME,True
+1,mg/L h,[mg] / [h·l],MASS / TIME·VOLUME,True
+1,s,s,TIME,True
+1,mumol/l,[μM] / [l],CONCENTRATION / VOLUME,True
+1,L/kg·h,[l] / [h·kg],VOLUME / TIME·MASS,True
+1,mg min mL−1,[mg·min] / [ml],MASS·TIME / VOLUME,True
+1,L/[h·kg,[l] / [h·kg],VOLUME / TIME·MASS,True
+1,hous,hous,hous,False
+1,micrograms/min/g,[μg] / [g·min],MASS / MASS·TIME,True
+1,(mL·h−1)·kg−1,[ml] / [h·kg],VOLUME / TIME·MASS,True
+1,nmol∙h/L,[nmol∙h] / [l],nmol∙h / VOLUME,False
+1,μg•h/mL,[h·μg] / [ml],TIME·MASS / VOLUME,True
+1,µM × h,h·µM,TIME·µM,False
+1,micrograms.h/ml,[h·μg] / [ml],TIME·MASS / VOLUME,True
+1,h•µg/mL,[h·µg] / [ml],TIME·µg / VOLUME,False
+1,ng/ml*h,[ng] / [h·ml],MASS / TIME·VOLUME,True
+1,liters/h/kg,[l] / [h·kg],VOLUME / TIME·MASS,True
+1,μg∙h/mL,[μg∙h] / [ml],μg∙h / VOLUME,False
+1,litre/kg,[l] / [kg],VOLUME / MASS,True
+1,hr*μg/mL,[h·μg] / [ml],TIME·MASS / VOLUME,True
+1,ng eq./mL,[eq·ng] / [ml],eq·MASS / VOLUME,False
+1,μg/ml·h,[μg] / [h·ml],MASS / TIME·VOLUME,True
+1,µM·min,min·µM,TIME·µM,False
+1,microg h ml(-1),[h·μg] / [ml],TIME·MASS / VOLUME,True
+1,l h(-1) m(-2),[l] / [(m)^2·h],VOLUME / (m)^2·TIME,False
+1,ml/min/1.73 m2,[ml] / [1.73·m2·min],VOLUME / 1.73·m2·TIME,False
+1,1,1,1,False
+1,hour−1,1/[hour],1/[hour],False
+1,ng.ml-1.h,[h·ng] / [ml],TIME·MASS / VOLUME,True
+1,μg/L/h,[μg] / [h·l],MASS / TIME·VOLUME,True
+1,micromol x h/l,[h·μM] / [l],TIME·CONCENTRATION / VOLUME,True
+1,mL per minute,[ml] / [min],VOLUME / TIME,True
+1,min×mg·L-1,[mg·min] / [l],MASS·TIME / VOLUME,True
+1,h μmol/L,[h·μmol] / [l],TIME·μmol / VOLUME,False
+1,bpm,bpm,bpm,False
+1,mL kg-1,[ml] / [kg],VOLUME / MASS,True
+1,mL kg-1 h-1,[ml] / [h·kg],VOLUME / TIME·MASS,True
+1,ngh/ml,[ngh] / [ml],ngh / VOLUME,False
+1,transduction events.ml/cell.virion.min,[events·ml·transduction] / [cell·min·virion],events·VOLUME·transduction / cell·TIME·virion,False
+1,mg.min/mL,[mg·min] / [ml],MASS·TIME / VOLUME,True
+1,g/min,[g] / [min],MASS / TIME,True
+1,ng· h/mL,[h·ng] / [ml],TIME·MASS / VOLUME,True
+1,mg/kg,[mg] / [kg],MASS / MASS,True
+1,• h/mL,[h] / [ml],TIME / VOLUME,True
+1,mg L-1,[mg] / [l],MASS / VOLUME,True
+1,fmol/106 cells,[fmol] / [106·cells],fmol / 106·cells,False
+1,mg/min/kg,[mg] / [kg·min],MASS / MASS·TIME,True
+1,h·ng Eq./mL,[eq·h·ng] / [ml],eq·TIME·MASS / VOLUME,False
+1,ng ⋅ h ⋅ mL-1,[h·ng] / [ml],TIME·MASS / VOLUME,True
+1,mg/1,[mg] / [1],MASS / 1,False
+1,l h(-1)),[l] / [h],VOLUME / TIME,True
+1,sec,s,TIME,True
+1,h · ng/mL,[h·ng] / [ml],TIME·MASS / VOLUME,True
+1,μg·mL-1,[μg] / [ml],MASS / VOLUME,True
+1,pg·h/mL,[h·pg] / [ml],TIME·pg / VOLUME,False

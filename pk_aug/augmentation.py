@@ -5,26 +5,31 @@ TO_REMOVE = []  # ['[', '(', ']', ')']
 DOT_SYNS = ['x', '*', '×', '•', ' ', '⋅']
 UNIT_SYNONYMS = {
     '·': DOT_SYNS,
-    'μg': ['micrograms', 'micro g', 'microg', 'microgram'],
+    'μg': ['micrograms', 'micro g', 'microg', 'microgram', 'µg', 'mug'],
     'h': ['hr', 'hrs', 'hour', 'hours'],
     '%': ['percent', 'percentage'],
+    'μl': ['microliters','microliter', 'micro l', 'microl', 'µl'],
     'l': ['liters', 'litre', 'liter', 'litres'],
+    'dl': ['deciliter', 'dliter'],
     'min': ['minutes', 'minute', 'mins'],
     'd': ['days', 'day'],
+    'month': ['months'],
     'kg': ['kilogram', 'kilograms'],
     's': ['sec'],
+    'ms': ['milisec', 'miliseconds', 'msec'],
     'nM': ['nmol', 'nanomol'],
     'mM': ['mmol', 'milimol'],
-    'μM': ['mumol', 'micromol', 'micromols'],
-    'pM': ['pmol', 'pmols']
+    'μM': ['mumol', 'micromol', 'micromols', 'mumol', 'μmol', 'µmol'],
+    'pM': ['pmol', 'pmols', 'picomol']
 
 }
 
 MAGNITUDES = {
-    'TIME': ['s', 'min', 'h', 'd'],
+    'TIME': ['ms','s', 'min', 'h', 'd', 'month'],
     'MASS': ['ng', 'μg', 'mg', 'g', 'kg'],
-    'VOLUME': ['nl', 'µl', 'ml', 'l'],
-    'CONCENTRATION': ['pM', 'nM', 'μM', 'mM', 'M']
+    'VOLUME': ['nl', 'μl', 'ml', 'l', 'dl'],
+    'CONCENTRATION': ['pM', 'nM', 'μM', 'mM', 'M'],
+    'PERCENTAGE': ['%'],
 }
 
 
@@ -38,9 +43,9 @@ def subs_underscore_dot(inp_mention: str, standard_dot: str = '·') -> str:
 
 
 def sub_all_mult(inp_mention: str, standard_dot: str = '·') -> str:
-    for x in DOT_SYNS:
-        if x in inp_mention:
-            inp_mention = inp_mention.replace(x, standard_dot)
+    for subelement in DOT_SYNS:
+        if subelement in inp_mention:
+            inp_mention = inp_mention.replace(subelement, standard_dot)
     inp_mention = re.sub(r'·+', standard_dot, inp_mention)
     return inp_mention
 
@@ -100,6 +105,7 @@ def standardise_unit(inp_mention: str) -> str:
 
 def check_for_divide(inp_mention: str) -> str:
     if len(inp_mention.split("/")) > 1:
+        # Checks for the first "/" and if more than one, conversts subsequent "/" to "·"
         splt_on_divide = inp_mention.split("/", 1)
         replaced_second_divide = [x.replace("/", "·") for x in splt_on_divide]
         replaced_second_divide = ["(" + item + ")(-1)" for item in replaced_second_divide[1:]]
@@ -111,7 +117,7 @@ def check_for_divide(inp_mention: str) -> str:
 
 
 def check_weight_dot_split(inp_mention: str) -> List:
-    if len(re.findall("70·kg\(-1\)|70·kg-1|70·\(kg\)-1", inp_mention))>=1:
+    if len(re.findall("70·kg\(-1\)|70·kg-1|70·\(kg\)-1", inp_mention)) >= 1:
         weight_split = re.split("70·kg\(-1\)|70·kg-1|70·\(kg\)-1", inp_mention)
         weight_split = [minus for minus in weight_split if (minus != "" and minus is not None)]
         weight_split = "".join(weight_split)
@@ -126,8 +132,8 @@ def check_weight_dot_split(inp_mention: str) -> List:
 
 
 def check_weight_bracket_dot_split(inp_mention: str) -> List:
-    if len(re.findall("70·kg\(-1\)|70·kg-1|70·\(kg\)-1", inp_mention))>=1:
-        weight_split = re.split("70·kg\(-1\)|70·kg-1|70·\(kg\)-1", inp_mention)
+    weight_split = re.split(r"70·kg\(-1\)|70·kg-1|70·\(kg\)-1", inp_mention)
+    if len(weight_split) > 1:
         weight_split = [minus for minus in weight_split if (minus != "" and minus is not None)]
         weight_split = "".join(weight_split)
         dot_split = re.split(r"·(?=[^\)]*(?:\(|$))", weight_split)
@@ -140,7 +146,9 @@ def check_weight_bracket_dot_split(inp_mention: str) -> List:
 
 
 def check_for_brackets(inp_mention: str) -> List:
-    if len(re.findall(r"\((.*?)\)-\d+|\((.*?)\)−\d+|\((.*?)\)\(-\d+\)|\((.*?)\)\(−\d+\)", inp_mention)) >= 1:
+    big_parenthesis_regex = r"\((.*?)\)-\d+|\((.*?)\)−\d+|\((.*?)\)\(-\d+\)|\((.*?)\)\(−\d+\)"
+    small_parenthesis_regex = r"\((-\d+)\)|\((−\d+)\)|(-\d+)|(−\d+)"
+    if len(re.findall(big_parenthesis_regex, inp_mention)) >= 1:
         # split on dots outside of brackets only
         dot_split = check_weight_bracket_dot_split(inp_mention)
         brackets_split = [re.split(r"\((.*?)\)", dot) and re.split(r"(-\d)|(−\d)", dot) for dot in dot_split]
@@ -148,15 +156,16 @@ def check_for_brackets(inp_mention: str) -> List:
         brackets_split = [[num_bracket.strip("(){}[]") for num_bracket in i] for i in brackets_split]
         brackets_split = [[bracket for bracket in i if bracket != ""] for i in brackets_split]
         final_split = [[strip_bracket.replace("−", "-") for strip_bracket in i] for i in brackets_split]
-    elif len(re.findall(r"\(-(\d)\)|\(−(\d)\)|-(\d)|−(\d)", inp_mention)) >= 1:
+    elif len(re.findall(small_parenthesis_regex, inp_mention)) >= 1:
         dot_split = check_weight_dot_split(inp_mention)
-        minus_one_split = [re.split(r"\((-\d)\)|\((−\d)\)|(-\d)|(−\d)", dot2) for dot2 in dot_split]
+        minus_one_split = [re.split(small_parenthesis_regex, dot2) for dot2 in dot_split]
+        minus_one_split = [[num_minus.strip("(){}[]") for num_minus in i if num_minus] for i in minus_one_split]
         minus_one_split = [[minus for minus in i if (minus != "" and minus is not None)] for i in minus_one_split]
-        minus_one_split = [[num_minus.strip("(){}[]") for num_minus in i] for i in minus_one_split]
         final_split = [[strip_minus.replace("−", "-") for strip_minus in i] for i in minus_one_split]
     else:
         final_split = [[inp_mention]]
-
+    if not all([0 < len(sublist) <= 2 for sublist in final_split]):
+        a = 1
     return final_split
 
 
@@ -165,17 +174,14 @@ def standardise_divide(inp_mention: str) -> Tuple:
     Converts all units into dict of numerator and denominator (removes all "/" and "-1")
     N.B. second slash equivalent to multiplication
     """
-    # check for / and convert all to -1
+    # 1. check for /, and if more than one convert subsequent to ·
     inp_mention = check_for_divide(inp_mention)
 
-    # check for brackets
+    # 2. Check for brackets and splits on the dot returning numerator and denominator candidates
     units_split = check_for_brackets(inp_mention)
-
-    # convert -1s to nominators and denominators
-    num_list = []
-    minus_list = []
-
-    # add all those without -digits to nominator list
+    # ml*kg-1*h*min-1 -> [[ml], [kg, -1], [h], [min, -1]]
+    # ml/h -> [[ml],[h, -1]
+    # 3. Add all those without -digits to nominator list
     num_list = [sublist for sublist in units_split if len(sublist) == 1]
     minus_list = [sub for sub in units_split if sub not in num_list]
 
@@ -198,12 +204,57 @@ def standardise_divide(inp_mention: str) -> Tuple:
     # join elements with mutliplication sign
     numerator = "·".join(num_list)
     denominator = "·".join(denom_list)
-    print(numerator, "/", denominator)
+    # print(numerator, "/", denominator)
 
     return numerator, denominator
 
 
-test_ones = ["micrograms/ml", "l·h(-1)·70·kg(-1)", "l/h/70·kg", "h-1", "/h", "ng·h·ml", "10−6·cm/s/h", "ng·ml(-1)·h(-1)", "μmol·l−1", "l·(kg·h)(-1)"]
-for x in test_ones:
-    t2 = standardise_unit(x)
-    final = standardise_divide(t2)
+def unit2magnitude(inp_unit: str) -> str:
+    for magnitude, magn_units in MAGNITUDES.items():
+        if inp_unit in magn_units:
+            return magnitude
+    return None
+
+
+def units2magnitudes(inp_xnumertor: str) -> Tuple[str, bool]:
+    all_converted = True
+    all_units = inp_xnumertor.split("·")
+    out_magnitudes = []
+    for tmp_unit in all_units:
+        magnitude = unit2magnitude(inp_unit=tmp_unit)
+        if magnitude is None:
+            all_converted = False
+            out_magnitudes.append(tmp_unit)
+        else:
+            out_magnitudes.append(magnitude)
+
+    return "·".join(out_magnitudes), all_converted
+
+
+def convert_final_std(inp_num, inp_denom) -> Tuple[str, str, bool]:
+    if inp_num and inp_denom:
+        inp_num_sorted = "·".join(sorted(inp_num.split("·")))
+        inp_denom_sorted = "·".join(sorted(inp_denom.split("·")))
+        inp_num_mag, all_as_mag_n = units2magnitudes(inp_xnumertor=inp_num_sorted)
+        inp_denom_mag, all_as_mag_d = units2magnitudes(inp_xnumertor=inp_denom_sorted)
+        st_unit_mention = f"[{inp_num_sorted}] / [{inp_denom_sorted}]"
+        st_unit_magnitudes = f"{inp_num_mag} / {inp_denom_mag}"
+        all_as_mag = False
+        if all_as_mag_n and all_as_mag_d:
+            all_as_mag = True
+        return st_unit_mention, st_unit_magnitudes, all_as_mag
+    else:
+        if inp_num:
+            inp_num_sorted = "·".join(sorted(inp_num.split("·")))
+            inp_num_mag, all_as_mag = units2magnitudes(inp_xnumertor=inp_num_sorted)
+            st_unit_mention = f"{inp_num_sorted}"
+            st_unit_magnitudes = f"{inp_num_mag}"
+            return st_unit_mention, st_unit_magnitudes, all_as_mag
+        else:
+            if inp_denom:
+                inp_denom_sorted = "·".join(sorted(inp_denom.split("·")))
+                inp_denom_mag, all_as_mag = units2magnitudes(inp_xnumertor=inp_denom_sorted)
+                st_unit_mention = f"1/[{inp_denom_sorted}]"
+                st_unit_magnitudes = f"1/[{inp_denom_mag}]"
+                return st_unit_mention, st_unit_magnitudes, all_as_mag
+            return "", "", False
