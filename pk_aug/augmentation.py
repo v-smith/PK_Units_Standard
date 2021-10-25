@@ -146,8 +146,8 @@ def check_weight_bracket_dot_split(inp_mention: str) -> List:
 
 
 def check_for_brackets(inp_mention: str) -> List:
-    big_parenthesis_regex = r"\((.*?)\)-\d+|\((.*?)\)−\d+|\((.*?)\)\(-\d+\)|\((.*?)\)\(−\d+\)"
-    small_parenthesis_regex = r"\((-\d+)\)|\((−\d+)\)|(-\d+)|(−\d+)"
+    big_parenthesis_regex = r"\((.*?)\)-\d+|\((.*?)\)−\d+|\((.*?)\)–\d+|\((.*?)\)\(-\d+\)|\((.*?)\)\(−\d+\)|\((.*?)\)\(–\d+\)"
+    small_parenthesis_regex = r"\((-\d+)\)|\((−\d+)\)|\((–\d+)\)|(-\d+)|(−\d+)|(–\d+)"
     if len(re.findall(big_parenthesis_regex, inp_mention)) >= 1:
         # split on dots outside of brackets only
         dot_split = check_weight_bracket_dot_split(inp_mention)
@@ -155,13 +155,13 @@ def check_for_brackets(inp_mention: str) -> List:
         brackets_split = [[bracket for bracket in i if bracket is not None] for i in brackets_split]
         brackets_split = [[num_bracket.strip("(){}[]") for num_bracket in i] for i in brackets_split]
         brackets_split = [[bracket for bracket in i if bracket != ""] for i in brackets_split]
-        final_split = [[strip_bracket.replace("−", "-") for strip_bracket in i] for i in brackets_split]
+        final_split = [[strip_bracket.replace("−", "-").replace("–", "-") for strip_bracket in i] for i in brackets_split]
     elif len(re.findall(small_parenthesis_regex, inp_mention)) >= 1:
         dot_split = check_weight_dot_split(inp_mention)
         minus_one_split = [re.split(small_parenthesis_regex, dot2) for dot2 in dot_split]
         minus_one_split = [[num_minus.strip("(){}[]") for num_minus in i if num_minus] for i in minus_one_split]
         minus_one_split = [[minus for minus in i if (minus != "" and minus is not None)] for i in minus_one_split]
-        final_split = [[strip_minus.replace("−", "-") for strip_minus in i] for i in minus_one_split]
+        final_split = [[strip_minus.replace("−", "-").replace("–", "-") for strip_minus in i] for i in minus_one_split]
     else:
         final_split = [[inp_mention]]
     if not all([0 < len(sublist) <= 2 for sublist in final_split]):
@@ -207,6 +207,12 @@ def standardise_divide(inp_mention: str) -> Tuple:
     # print(numerator, "/", denominator)
 
     return numerator, denominator
+
+
+b = "microg h ml(-l)"
+c = standardise_unit(b)
+nu, de = standardise_divide(c)
+print(nu, de)
 
 
 def unit2magnitude(inp_unit: str) -> str:
