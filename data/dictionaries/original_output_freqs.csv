@@ -1,0 +1,378 @@
+,unit_mention,frequency
+0,h,537
+1,%,279
+2,hours,237
+3,min,221
+4,ng/mL,140
+5,ng/ml,80
+6,hr,71
+7,L/kg,52
+8,days,46
+9,μg/mL,45
+10,micrograms/ml,43
+11,L/h,43
+12,L,42
+13,l/kg,42
+14,minutes,38
+15,ml/min/kg,34
+16,ml/min,32
+17,μM,30
+18,mg/L,27
+19,mL/min,24
+20,l,23
+21,µg/mL,22
+22,l/h,22
+23,L/h/kg,22
+24,μg/ml,21
+25,nM,19
+26,mg/l,18
+27,mL/min/kg,17
+28,microM,17
+29,ng*h/mL,17
+30,microg/ml,13
+31,ng h/mL,12
+32,liters,12
+33,h.ng-eq/g,12
+34,ng·h·mL−1,12
+35,mg/L*min,12
+36,μg h/mL,12
+37,l h-1 kg-1,12
+38,h(-1),11
+39,l/h/kg,11
+40,ng x h/ml,10
+41,μg/L,10
+42,ng/g,10
+43,ml/kg,9
+44,μM·h,9
+45,ml/min per kg,9
+46,h−1,9
+47,ml.min-1.kg-1,8
+48,liters/h,8
+49,ng · h/mL,8
+50,liter/kg,8
+51,μmol/L,8
+52,mL,8
+53,ml/s,8
+54,ng.h/ml,8
+55,ng·h/mL/mg,8
+56,mL/h/kg,8
+57,l kg-1,8
+58,µg·hr/ml,8
+59,micro g/mL,8
+60,ng.hr/ml,8
+61,mins,8
+62,nmol/lx60 min,8
+63,ng.h/mL,8
+64,micrograms/dl,8
+65,ml/h/kg,7
+66,hr-1,7
+67,ng·h/mL,7
+68,ml,7
+69,μg·h/mL,7
+70,µg/ml,7
+71,mmol/L,7
+72,hour,7
+73,ml min-1 kg-1,7
+74,liters/kg,6
+75,mL·h-1·kg-1,6
+76,ng-eq/g,6
+77,microg x h/ml,6
+78,ng/h/ml,6
+79,IU dL(-1) per IU kg(-1),6
+80,min-1,6
+81,ml min-1,6
+82,µL/min,6
+83,ng·hr/mL,6
+84,ng h mL-1,6
+85,μg·h/ml,6
+86,h.ng/ml,6
+87,mg,5
+88,mg/liter,5
+89,mg·h/L,5
+90,µg/L,5
+91,h*ng/mL,5
+92,ml/h,5
+93,mL/h,5
+94,μg min/mL,5
+95,microg/mL,5
+96,ng X ml-1 X hr,5
+97,μg/g,4
+98,mumol l-1,4
+99,microg l-1 h,4
+100,mg L-1 h-1,4
+101,ml/kg/min,4
+102,μg h/L,4
+103,mg hr/l,4
+104,micrograms/mL,4
+105,micromol,4
+106,nmol/min/nmol,4
+107,mL/kg min,4
+108,ng mL-1,4
+109,mg x h/L,4
+110,l/min,4
+111,micrograms/l,4
+112,ml/kg/minute,4
+113,mg h l–1,4
+114,mg l-1,4
+115,mg min l-1,4
+116,mmol/L*min,4
+117,μg·ml−1,4
+118,d,4
+119,h kg g L-1 mg-1,4
+120,mL h-1 kg-1,4
+121,micro M,4
+122,mug/ml,4
+123,ml/kg per min,4
+124,micrograms/L,4
+125,mmol/L*h,4
+126,day-1,4
+127,µg L/h,4
+128,mmol/(L. h),4
+129,ml X kg-1 X min.-1,4
+130,ng·mL−1,4
+131,nmol·days/L/mg,4
+132,ng.ml-1,4
+133,μg*h/L,4
+134,pmol/mL,4
+135,μg·h/L,4
+136,μg·h−1·mL−1,4
+137,mg/mL,4
+138,microg ml(-1) h,4
+139,mIU.h/ml,4
+140,µmol*h/L,4
+141,mL/kg,4
+142,ng/ml.mg,4
+143,mg l(-1) h,4
+144,μg · h/L,4
+145,micrograms/liter,4
+146,/hour,4
+147,ng h ml(-1),4
+148,ng · h/ml,4
+149,litres,4
+150,μg·min/mL,4
+151,micrograms hr/dl,4
+152,ml hr-1 kg-1,4
+153,mL/minute/kg,4
+154,µg·mL−1,4
+155,μmol l−1,4
+156,liter/kg/h,4
+157,/h,3
+158,microgram/ml,3
+159,nM.h,3
+160,L/[h·kg],3
+161,µL/min/mg,3
+162,µg h/mL,3
+163,cm/s,3
+164,µM,3
+165,ng ml-1,3
+166,L/h/70 kg,3
+167,ng h/ml,3
+168,l h(-1),3
+169,microg h/ml,3
+170,liters/kg/hour,3
+171,h·ng/mL,3
+172,ng BDP/L,3
+173,l h−1,3
+174,micrograms/cm2/hr,3
+175,ml/min/m2,3
+176,mg × m2 × h/L × mg,3
+177,nmol x min x l(-1),3
+178,ng/ml.h,3
+179,L/hr,3
+180,ng ml−1·h,3
+181,ng • h/mL,3
+182,micrograms h-1 ml-1,3
+183,L/day,3
+184,ms,3
+185,months,3
+186,h·mg/L,2
+187,μL/min/mg protein,2
+188,liters/hour,2
+189,μg L−1,2
+190,ng⋅h/mL,2
+191,liters/kg/h,2
+192,mg × h/L,2
+193,mumol/l.h,2
+194,ng.hr/mL,2
+195,per cent,2
+196,h·μg·mL-1,2
+197,mm3,2
+198,mg ml−1.min,2
+199,ngh/mL,2
+200,μg × hour/ml,2
+201,mg/min,2
+202,mg X h X l-1,2
+203,mg.h.l-1,2
+204,mg/dl,2
+205,L/h per 70 kg,2
+206,L. h(-1),2
+207,L/kg/min,2
+208,hrs,2
+209,ng x ml(-1) x h,2
+210,μg*h/mL,2
+211,ug*hr/mL,2
+212,micro M. h,2
+213,ng ml-1 h,2
+214,mL/(h*kg),2
+215,l./m2/hr,2
+216,μg/kg,2
+217,microg.h/mL,2
+218,l/kg/hr,2
+219,microM min,2
+220,h μg ml−1,2
+221,mg x min/mL,2
+222,log10 CFU/mL,2
+223,μM × h,2
+224,L/70 kg,2
+225,μm,2
+226,lh(-1),2
+227,μg h/ml,2
+228,L∙hr-1,2
+229,h.ng/mL,2
+230,ng·hour/mL,2
+231,l.kg-1,2
+232,L/kg/h,2
+233,liters/1.73 m2,2
+234,ml/hr,2
+235,l.h(-1) 70 kg(-1),2
+236,ng∙h/ml,2
+237,pg/ml X h,2
+238,ng/ml X h,2
+239,g/ml,2
+240,mg/h/L,2
+241,s-1,2
+242,h × ng/ml,2
+243,micrograms ml-1,2
+244,L/min,2
+245,g · day/L,2
+246,μg/ ml,2
+247,mg×h/ml,2
+248,ml/hr/kg,2
+249,ng · h · mL,2
+250,cm × min,2
+251,nmol·L−1·h,2
+252,l kg−1,2
+253,micromol l(-1),2
+254,mIU/litre,2
+255,h*μg/ml,2
+256,mg/L·h,2
+257,l/h/m(2),2
+258,ng ml(-1),2
+259,ng g(-1),2
+260,mIU/L,2
+261,nm,2
+262,microg/mL.h,2
+263,ng.h.ml-1,2
+264,L h-1 kg(-1),2
+265,L kg(-1),2
+266,ng h mL(-1),2
+267,l/h/m2,2
+268,ml/min per kilogram,2
+269,ng·h·mL-1,2
+270,microg h ml(-l),2
+271,mmHg,2
+272,ng min/mL,2
+273,L/Kg,2
+274,L/h/Kg,2
+275,ml/minute/kg,2
+276,L/hour.kg,2
+277,per year,2
+278,ng/ml x h,2
+279,μg/h,2
+280,mg.h,2
+281,nmol/1,2
+282,pmol/1,2
+283,nM−1h−1,2
+284,min(1),2
+285,mg h/mL,2
+286,mL/kg·min,2
+287,per hour,2
+288,microg/L,2
+289,l/kg/h,2
+290,% w/w,2
+291,ng x ml(-1) x h(-1),2
+292,× 10−7 cm/s,2
+293,× 10−6 cm/s,2
+294,nM*hr,1
+295,min(-1),1
+296,meq/L,1
+297,micromol x h/l,1
+298,mL per minute,1
+299,mg.min/mL,1
+300,ng ml−1,1
+301,sec,1
+302,μg·mL-1,1
+303,1,1
+304,mg min mL−1,1
+305,L/[h·kg,1
+306,(mL·h−1)·kg−1,1
+307,μg•h/mL,1
+308,ng/ml*h,1
+309,liters/h/kg,1
+310,μg∙h/mL,1
+311,µM·min,1
+312,l h(-1) m(-2),1
+313,microg h ml(-1),1
+314,μg/ml·h,1
+315,ng eq./mL,1
+316,hr*μg/mL,1
+317,litre/kg,1
+318,h•µg/mL,1
+319,micrograms.h/ml,1
+320,nmol/L,1
+321,nmol∙h/L,1
+322,pg·h/mL,1
+323,micrograms/min/g,1
+324,hous,1
+325,L/kg·h,1
+326,mumol/l,1
+327,s,1
+328,mg/L h,1
+329,ng*h/ml,1
+330,micrograms l-1 h-1,1
+331,ml/min/1.73 m2,1
+332,hour−1,1
+333,ng.ml-1.h,1
+334,h · ng/mL,1
+335,l h(-1)),1
+336,mg/1,1
+337,ng ⋅ h ⋅ mL-1,1
+338,h·ng Eq./mL,1
+339,mg/min/kg,1
+340,fmol/106 cells,1
+341,mg L-1,1
+342,• h/mL,1
+343,mg/kg,1
+344,ng· h/mL,1
+345,g/min,1
+346,transduction events.ml/cell.virion.min,1
+347,ngh/ml,1
+348,mL kg-1 h-1,1
+349,mL kg-1,1
+350,bpm,1
+351,h μmol/L,1
+352,min×mg·L-1,1
+353,μg/L/h,1
+354,µM × h,1
+355,mm,1
+356,nmol/min/mg protein,1
+357,% receptor occupancy *hr,1
+358,% receptor occupancy*hr,1
+359,L h(-1),1
+360,h-1,1
+361,ng/mL h,1
+362,L/hr/kg,1
+363,cm/sec (× 10−6),1
+364,μg⋅hr/mL,1
+365,μg h2/ml,1
+366,micrograms,1
+367,muM,1
+368,mg x h x L(-1),1
+369,L x kg(-1),1
+370,L x (kg x h)(-1),1
+371,L/d,1
+372,ml min(-1) kg(-1),1
+373,L/h.kg,1
+374,h.mg/L,1
+375,day,1
+376,μg/h/mL,1
